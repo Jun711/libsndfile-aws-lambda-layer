@@ -1,0 +1,11 @@
+venv
+layer
+
+# Byte-compiled / optimized / DLL files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.~c9*
+
+event.json

@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+- AWS::Serverless-2016-10-31
+
+Parameters:
+  Stage:
+    Type: String
+    Description: The name for a project pipeline stage, such as Staging or Prod, for which resources are provisioned and deployed.
+    Default: ''
+
+Globals:
+  Function:
+    AutoPublishAlias: live
+    DeploymentPreference:
+      Enabled: true
+      Type: Canary10Percent5Minutes
+      Role: !Ref CodeDeployRole
+
+Resources:
+  Libsndfile-Layer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: libsndfile-layer
+      Description: a layer that contains libsndfile C library
+      ContentUri: layer/
+      CompatibleRuntimes:
+        - python3.7
+        - python3.8
+      LicenseInfo: ''
+      RetentionPolicy: Retain
+ 
