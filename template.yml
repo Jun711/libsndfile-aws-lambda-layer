@@ -17,7 +17,7 @@ Globals:
       Role: !Ref CodeDeployRole
 
 Resources:
-  Libsndfile-Layer:
+  LibsndfileLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
       LayerName: libsndfile-layer
